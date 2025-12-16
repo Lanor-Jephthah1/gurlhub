@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Girlhub by Debbs | The Ultimate Aesthetic Shop</title>
+    <link rel="icon" type="image/png" href="gh.png" />
+    <meta property="og:title" content="GirlHub" />
+    <meta property="og:description" content="Discover GirlHub – your hub for beauty, fashion, and lifestyle." />
+    <meta property="og:url" content="https://lanor-jephthah1.github.io/Girlhub/" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="loading">
+    
+    <!-- Page Transition Overlay -->
+    <div id="page-transition" class="page-transition"></div>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <span class="loader-logo">GH</span>
+            <div class="loading-bar"><div class="bar-fill"></div></div>
+            <p>Loading Aesthetics...</p>
+        </div>
+    </div>
+
+    <div id="entry-modal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="modal-card fade-up">
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <h2>Hey, Queen!</h2>
+                <p>Customize your shopping experience.</p>
+            </div>
+            <form id="preference-form">
+                <div class="form-group">
+                    <label for="shipping-loc">Shipping Location</label>
+                    <div class="select-wrapper">
+                        <select id="shipping-loc" name="location">
+                            <option value="GH" data-symbol="₵">Ghana (GHS ₵)</option>
+                            <option value="NG" data-symbol="₦">Nigeria (NGN ₦)</option>
+                            <option value="UK" data-symbol="£">United Kingdom (GBP £)</option>
+                            <option value="US" data-symbol="$">United States (USD $)</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email-signup">Unlock 10% Off</label>
+                    <input type="email" id="email-signup" placeholder="Enter your email address">
+                </div>
+                <button type="submit" class="btn btn-gold btn-block">Enter Girlhub</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="search-overlay" class="overlay-screen">
+        <button class="close-overlay">&times;</button>
+        <div class="search-wrapper">
+            <input type="text" id="search-input" placeholder="Search for necklaces, totes, vibes..." autofocus>
+            <div class="quick-links">
+                <span>Trending:</span>
+                <a href="#" data-search="Rose Gold">Rose Gold</a>
+                <a href="#" data-search="Uni Totes">Uni Totes</a>
+                <a href="#" data-search="Digital Planners">Digital Planners</a>
+            </div>
+        </div>
+    </div>
+
+    <aside id="cart-sidebar" class="sidebar-right">
+        <div class="sidebar-header">
+            <h3>Your Bag (<span class="cart-count">0</span>)</h3>
+            <button class="close-sidebar">&times;</button>
+        </div>
+        <div class="cart-items-container">
+            <div class="empty-state">
+                <i class="far fa-sad-tear"></i>
+                <p>Your bag is empty, bestie!</p>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <span class="cart-total-price">₵0.00</span>
+            </div>
+            <p class="shipping-note">Shipping & taxes calculated at checkout</p>
+            <button class="btn btn-black btn-block" onclick="proceedToCheckout()">Secure The Bag</button>
+        </div>
+    </aside>
+
+    <div class="announcement-bar">
+        <div class="marquee-track">
+            <span>✨ MANIFESTING ACADEMIC SUCCESS ✨ FREE SHIPPING ON ORDERS OVER 500₵ ✨ NEW TUMBLERS IN STOCK ✨ STUDENT DISCOUNT AVAILABLE ✨</span>
+            <span>✨ MANIFESTING ACADEMIC SUCCESS ✨ FREE SHIPPING ON ORDERS OVER 500₵ ✨ NEW TUMBLERS IN STOCK ✨ STUDENT DISCOUNT AVAILABLE ✨</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container nav-container">
+            <button class="mobile-toggle" aria-label="Open Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <a href="index.html" class="brand-logo" onclick="navigateTo(event, 'index.html')">
+                Girlhub <span class="accent-text">by Debbs</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="#new" class="nav-link active">New In</a></li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#shop" class="nav-link">Shop <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="menu-column">
+                                <h4>Jewelry</h4>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Jewelry')">Necklaces</a>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Jewelry')">Earrings</a>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Jewelry')">Bracelets</a>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Jewelry')">Anklets</a>
+                            </div>
+                            <div class="menu-column">
+                                <h4>Accessories</h4>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Accessories')">Uni Bags</a>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Accessories')">Tumblers</a>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Accessories')">Laptop Sleeves</a>
+                            </div>
+                            <div class="menu-column">
+                                <h4>Beauty</h4>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Fragrance')">Perfumes</a>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Beauty')">Lip Gloss</a>
+                                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Beauty')">Body Shimmers</a>
+                            </div>
+                            <div class="menu-image">
+                                <img src="assets/menu-promo.jpg" alt="New Collection">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="#bundles" class="nav-link">Uni Bundles</a></li>
+                    <li><a href="#digital" class="nav-link">Digital</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-actions">
+                <button class="action-btn search-trigger"><i class="fas fa-search"></i></button>
+                <button class="action-btn wishlist-trigger"><i class="far fa-heart"></i></button>
+                <button class="action-btn cart-trigger">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button class="action-btn account-btn" onclick="navigateTo(event, 'auth.html')">
+                    <i class="far fa-user"></i>
+                </button>
+                <div class="currency-display hidden-mobile">GH ₵</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg-video"></div>
+            <div class="hero-content container">
+                <span class="hero-subtitle fade-in">For the University Girlie & Corporate Queen</span>
+                <h1 class="hero-title fade-in delay-1">ACCESSORIZE <br> YOUR AMBITION</h1>
+                <div class="hero-buttons fade-in delay-2">
+                    <a href="products.html" onclick="navigateTo(event, 'products.html')" class="btn btn-gold">Shop The Drop</a>
+                    <a href="#bundles" class="btn btn-outline-white">View Bundles</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <div class="usp-bar container">
+            <div class="usp-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Student Discounts</span>
+            </div>
+            <div class="usp-item">
+                <i class="fas fa-shipping-fast"></i>
+                <span>Fast Campus Delivery</span>
+            </div>
+            <div class="usp-item">
+                <i class="fas fa-gem"></i>
+                <span>Tarnish-Free Gold</span>
+            </div>
+        </div>
+
+        <section class="section vibe-check container">
+            <div class="section-header text-center">
+                <h2>What's The Vibe Today?</h2>
+                <div class="divider-gold"></div>
+            </div>
+            <div class="vibe-grid">
+                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Accessories')" class="vibe-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1611074182055-4ac85bad8bb6?q=80&w=1074&auto=format&fit=crop" alt="Lecture Hall">
+                    </div>
+                    <div class="vibe-info">
+                        <h3>Lecture Hall</h3>
+                        <span>Totes & Tumblers</span>
+                    </div>
+                </a>
+                
+                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Fragrance')" class="vibe-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600&auto=format&fit=crop" alt="Girls Night">
+                    </div>
+                    <div class="vibe-info">
+                        <h3>Girls Night</h3>
+                        <span>Perfume & Bling</span>
+                    </div>
+                </a>
+                
+                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Jewelry')" class="vibe-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=600&auto=format&fit=crop" alt="Date Night">
+                    </div>
+                    <div class="vibe-info">
+                        <h3>Date Night</h3>
+                        <span>Dainty Gold</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="section new-arrivals">
+            <div class="container">
+                <div class="section-header flex-between">
+                    <h2>Trending on Campus</h2>
+                    <a href="products.html" onclick="navigateTo(event, 'products.html')" class="link-underline">View All</a>
+                </div>
+                
+                <div class="product-scroller" id="home-products">
+                    <!-- Products will be loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="bundles" class="section bundle-section bg-light">
+            <div class="container split-layout">
+                <div class="bundle-text">
+                    <span class="subtitle-gold">University Essentials Kit</span>
+                    <h2>Build Your Own Bundle</h2>
+                    <p>Save 15% when you grab a Tote, a Tumbler, and a Necklace together.</p>
+                    
+                    <div class="bundle-steps">
+                        <div class="step active">
+                            <div class="circle">1</div>
+                            <span>Choose Bag</span>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step">
+                            <div class="circle">2</div>
+                            <span>Choose Cup</span>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step">
+                            <div class="circle">3</div>
+                            <span>Choose Bling</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-black">Start Building</button>
+                </div>
+                <div class="bundle-visuals">
+                    <div class="collage">
+                        <div class="collage-img img-1"></div>
+                        <div class="collage-img img-2"></div>
+                        <div class="collage-img img-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="digital" class="section digital-section">
+            <div class="overlay-dark"></div>
+            <div class="digital-content text-center">
+                <h2>Digital Luxury</h2>
+                <p>Planners, Wallpapers, and Vision Boards for the organized Queen.</p>
+                <div class="icon-grid">
+                    <div class="icon-box">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Wallpapers</span>
+                    </div>
+                    <div class="icon-box">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>Planners</span>
+                    </div>
+                </div>
+                <a href="products.html" onclick="navigateTo(event, 'products.html', 'Digital')" class="btn btn-outline-gold">Download Now</a>
+            </div>
+        </section>
+
+        <section class="section social-feed">
+            <div class="container text-center">
+                <h2>Girlhub Queens</h2>
+                <p>Tag @girlhubbydebbs to be featured</p>
+                <div class="insta-grid">
+                    <div class="insta-item"><img src="https://source.unsplash.com/random/300x300?girl,selfie" alt="Customer"></div>
+                    <div class="insta-item"><img src="https://source.unsplash.com/random/300x300?fashion,jewelry" alt="Customer"></div>
+                    <div class="insta-item"><img src="https://source.unsplash.com/random/300x300?makeup" alt="Customer"></div>
+                    <div class="insta-item"><img src="https://source.unsplash.com/random/300x300?university" alt="Customer"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Girlhub</h3>
+                <p>Empowering women through everyday luxury. Based in Accra, Shipping Worldwide.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="products.html" onclick="navigateTo(event, 'products.html')">New Arrivals</a></li>
+                    <li><a href="products.html" onclick="navigateTo(event, 'products.html')">Bestsellers</a></li>
+                    <li><a href="#bundles">Bundles</a></li>
+                    <li><a href="products.html" onclick="navigateTo(event, 'products.html', 'Digital')">Digital Store</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Stay In The Loop</h4>
+                <p>Subscribe for exclusive drops and student discounts.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p>&copy; 2025 Girlhub by Debbs. All rights reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
