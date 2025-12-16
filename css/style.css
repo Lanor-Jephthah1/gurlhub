@@ -303,7 +303,7 @@ body:not(.loading) #preloader {
 
 .hero-bg-video {
     position: absolute; inset: 0;
-    background: url('https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    background: url('../gh.jpg') center/cover no-repeat;
     opacity: 0.6;
     transform: scale(1.05);
     animation: zoomSlow 20s infinite alternate;
@@ -912,4 +912,5 @@ body:not(.loading) #preloader {
         opacity: 1;
         transform: scale(1);
     }
+
 }
